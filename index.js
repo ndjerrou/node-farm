@@ -68,6 +68,6 @@ s((req, res) => {
     });
     res.end('<h1>Hello World</h1>');
   }
-}).listen(8000, err => {
-  console.log('Listening on port 8000...');
+}).listen(process.env.PORT, err => {
+  console.log('Listening on port 3000...');
 });

@@ -1,0 +1,23 @@
+{
+  "name": "node-farm",
+  "version": "1.0.0",
+  "description": "Simple website to show products from the FARM by using nodejs",
+  "main": "index.js",
+  "engines": {
+    "node": "11.1.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndjerrou/node-farm.git"
+  },
+  "keywords": [],
+  "author": "Nissim DJERROUDI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ndjerrou/node-farm/issues"
+  },
+  "homepage": "https://github.com/ndjerrou/node-farm#readme"
+}
