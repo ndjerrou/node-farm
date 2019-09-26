@@ -2,6 +2,8 @@ const { createServer: s } = require('http');
 const { parse: p } = require('url');
 const fs = require('fs');
 
+const replaceHtml = require('./modules/replaceTemplate');
+
 const templateOverview = fs.readFileSync(
   `${__dirname}/templates/template_overview.html`,
   'utf-8'
@@ -16,23 +18,7 @@ const templateProduct = fs.readFileSync(
 );
 const data = fs.readFileSync(`${__dirname}/data/data.json`, 'utf-8');
 const parsedData = JSON.parse(data);
-
-const replaceHtml = (temp, product) => {
-  let output = temp.replace(/{%PRODUCTNAME%}/g, product.productName);
-  output = output.replace(/{%NUTRIENTS%}/g, product.nutrients);
-  output = output.replace(/{%IMAGE%}/g, product.image);
-  output = output.replace(/{%PRICE%}/g, product.price);
-  output = output.replace(/{%DESCRIPTION%}/g, product.description);
-  output = output.replace(/{%QUANTITY%}/g, product.quantity);
-  output = output.replace(/{%ID%}/g, product.id);
-  output = output.replace(/{%FROM%}/g, product.from);
-
-  if (!product.organic) {
-    output = output.replace(/{%NOTORGANIC%}/g, 'not-organic');
-  }
-
-  return output;
-};
+const port = process.env.PORT || 3000;
 
 s((req, res) => {
   const { pathname, query } = p(req.url, true);
@@ -68,6 +54,6 @@ s((req, res) => {
     });
     res.end('<h1>Hello World</h1>');
   }
-}).listen(process.env.PORT, err => {
-  console.log('Listening on port 3000...');
+}).listen(port, err => {
+  console.log(`Listening on port ${port}...`);
 });
