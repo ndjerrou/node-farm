@@ -2,7 +2,7 @@
 
 Wanna order some food ??
 
-Manipulatin nodejs : 
+A nodejs project : 
 
 - Creation of an API
 - Routing
